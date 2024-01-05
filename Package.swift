@@ -16,7 +16,9 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "HelixShimmer"),
-        .testTarget(name: "HelixShimmerTests")
+        .target(
+            name: "HelixShimmer",
+            path: "Sources/HelixShimmer"
+        ),
     ]
 )
