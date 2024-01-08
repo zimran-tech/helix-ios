@@ -9,30 +9,14 @@ import Foundation
 import SwiftUI
 import UIKit
 
-struct CardView: View {
-    var body: some View {
-        VStack(content: {
-            Text("Hello")
-            RoundedRectangle(cornerRadius: 8)
-                .frame(width: 100, height: 100)
-                .overlay {
-                    CardShimmer()
-                        .clipShape(.rect(cornerRadius: 8))
-                        .padding(-0.3)
-                }
-        })
-    }
-}
-
-
-struct CardShimmer : View {
+struct ShimmerView : View {
     @State private var show = false
     let center = UIScreen.main.bounds.width
     
     var body : some View {
         ZStack {
             Color.white
-            Color.black.opacity(0.04)
+            Color.black.opacity(0.05)
             Color.white
                 .mask(
                     Rectangle()
@@ -41,7 +25,7 @@ struct CardShimmer : View {
                                 gradient: .init(
                                     colors: [
                                         .clear,
-                                        Color.white.opacity(0.6),
+                                        Color.white.opacity(0.75),
                                         .clear
                                     ]
                                 ),
@@ -64,11 +48,5 @@ struct CardShimmer : View {
                 self.show.toggle()
             }
         }
-    }
-}
-
-struct CardShimmer_Preview: PreviewProvider {
-    static var previews: some View {
-        CardView()
     }
 }
