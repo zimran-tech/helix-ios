@@ -1,15 +1,14 @@
 //
 //  File.swift
+//  
 //
-//
-//  Created by Arman Sarvardin on 05.01.2024.
+//  Created by Arman Sarvardin on 08.01.2024.
 //
 
 import Foundation
 import SwiftUI
-import UIKit
 
-struct ShimmerView : View {
+struct TextShimmerView : View {
     @State private var show = false
     let center = UIScreen.main.bounds.width
     
@@ -19,7 +18,7 @@ struct ShimmerView : View {
             Color.black.opacity(0.08)
             Color.white
                 .mask(
-                    Rectangle()
+                    Capsule()
                         .fill(
                             LinearGradient(
                                 gradient: .init(
@@ -48,5 +47,22 @@ struct ShimmerView : View {
                 self.show.toggle()
             }
         }
+    }
+}
+
+
+public struct ShimmedTextView: View {
+    let isLoading: Bool
+    let shimmerLength: Int
+    
+    public var body: some View {
+        if isLoading {
+            Text(getShimmerText())
+                .shimmer(isLoading: isLoading, shape: .capsule)
+        }
+    }
+    
+    func getShimmerText() -> String {
+        return String(Array(repeating: "-", count: shimmerLength))
     }
 }
