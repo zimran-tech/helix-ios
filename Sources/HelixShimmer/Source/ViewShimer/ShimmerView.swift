@@ -12,11 +12,21 @@ import UIKit
 struct ShimmerView : View {
     @State private var show = false
     let center = UIScreen.main.bounds.width
+    var primaryColor: Color
+    var secondaryColor: Color
+    
+    init(
+        primaryColor: Color = Color.white,
+        secondaryColor: Color = Color.black
+    ) {
+        self.primaryColor = primaryColor
+        self.secondaryColor = secondaryColor
+    }
     
     var body : some View {
         ZStack {
-            Color.white
-            Color.black.opacity(0.08)
+            primaryColor
+            secondaryColor.opacity(0.1)
             Color.white
                 .mask(
                     Rectangle()
