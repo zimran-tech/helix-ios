@@ -5,28 +5,20 @@ import PackageDescription
 
 let package = Package(
     name: "Helix",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
         .library(
-            name: "HelixAnalytics",
-            targets: ["HelixAnalytics"]
+            name: "HelixShimmer",
+            targets: ["HelixShimmer"]
         ),
     ],
-    dependencies: [
-        .package(
-            url: "https://github.com/aws-amplify/aws-sdk-ios-spm",
-            from: "2.33.0"
-        )
-    ],
+    dependencies: [],
     targets: [
         .target(
-            name: "HelixAnalytics",
-            dependencies: [
-                .product(name: "AWSKinesis", package: "aws-sdk-ios-spm"),
-                .product(name: "AWSCore", package: "aws-sdk-ios-spm")
-            ]
+            name: "HelixShimmer",
+            path: "Sources/HelixShimmer"
         ),
-        .testTarget(
-            name: "HelixAnalyticsTests",
-            dependencies: ["HelixAnalytics"]),
     ]
 )
