@@ -31,10 +31,10 @@ struct CardShimmerExample: View {
                 RoundedRectangle(cornerRadius: 8)
                     .frame(width: 100, height: 100)
                     .foregroundColor(.blue)
-                    .clipShape(.rect)
+                    .clipShape(.rect(cornerRadius: 8))
                     .shimmer(
                         isLoading: isLoading,
-                        shape: .rect
+                        shape: .rect(cornerRadius: 8)
                     )
             })
             .animation(.default, value: isLoading)

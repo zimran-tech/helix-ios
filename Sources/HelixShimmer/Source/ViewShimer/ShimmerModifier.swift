@@ -24,7 +24,7 @@ struct ShimmerModifier<S: Shape>: ViewModifier {
                 if isLoading {
                     ShimmerView()
                         .clipShape(shape)
-                        .padding(-0.3)
+                        .padding(-0.33)
                 }
             }
     }
