@@ -16,7 +16,7 @@ struct ShimmerView : View {
     var body : some View {
         ZStack {
             Color.white
-            Color.black.opacity(0.05)
+            Color.black.opacity(0.08)
             Color.white
                 .mask(
                     Rectangle()
