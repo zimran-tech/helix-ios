@@ -26,7 +26,7 @@ struct ShimmerView : View {
     var body : some View {
         ZStack {
             primaryColor
-            secondaryColor.opacity(0.1)
+            secondaryColor
             Color.white
                 .mask(
                     Rectangle()

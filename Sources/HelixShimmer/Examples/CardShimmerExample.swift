@@ -34,8 +34,7 @@ struct CardShimmerExample: View {
                     .clipShape(.rect(cornerRadius: 8))
                     .shimmer(
                         isLoading: isLoading,
-                        shape: .rect(cornerRadius: 8),
-                        secondaryColor: .purple
+                        shape: .rect(cornerRadius: 8)
                     )
             })
             .animation(.default, value: isLoading)

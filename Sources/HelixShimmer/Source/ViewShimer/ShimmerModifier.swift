@@ -33,7 +33,7 @@ struct ShimmerModifier<S: Shape>: ViewModifier {
                 if isLoading {
                     ShimmerView(
                         primaryColor: primaryColor ?? Color.white,
-                        secondaryColor: secondaryColor ?? Color.black.opacity(0.88)
+                        secondaryColor: secondaryColor ?? Color.black.opacity(0.08)
                     )
                     .clipShape(shape)
                     .padding(-0.33)

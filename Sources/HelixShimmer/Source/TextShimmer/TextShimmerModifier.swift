@@ -12,12 +12,16 @@ import SwiftUI
 public extension View {
     func shimmerText(
         length: Int,
-        isLoading: Bool
+        isLoading: Bool,
+        primaryColor: Color? = nil,
+        secondaryColor: Color? = nil
     ) -> some View {
         modifier(
             TextShimmerModifier(
                 shimmerLength: length,
-                isLoading: isLoading
+                isLoading: isLoading,
+                primaryColor: primaryColor,
+                secondaryColor: secondaryColor
             )
         )
     }
@@ -26,11 +30,15 @@ public extension View {
 struct TextShimmerModifier: ViewModifier {
     public let shimmerLength: Int
     public let isLoading: Bool
+    public var primaryColor: Color?
+    public var secondaryColor: Color?
     public func body(content: Content) -> some View {
         if isLoading {
             ShimmedTextView(
                 isLoading: isLoading,
-                shimmerLength: shimmerLength
+                shimmerLength: shimmerLength,
+                primaryColor: primaryColor ?? Color.white,
+                secondaryColor: secondaryColor ?? Color.black.opacity(0.08)
             )
             
         } else {

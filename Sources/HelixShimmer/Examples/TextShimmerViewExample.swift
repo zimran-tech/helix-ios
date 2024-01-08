@@ -28,7 +28,11 @@ struct TextShimmerExample: View {
         let isLoading: Bool
         var body: some View {
             Text("Sample")
-                .modifier(TextShimmerModifier(shimmerLength: 5, isLoading: isLoading))
+                .shimmerText(
+                    length: 10,
+                    isLoading: isLoading,
+                    primaryColor: Color.white
+                )
         }
     }
 }
