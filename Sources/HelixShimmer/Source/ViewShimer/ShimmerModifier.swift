@@ -28,17 +28,20 @@ struct ShimmerModifier<S: Shape>: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        content
-            .overlay {
-                if isLoading {
+        if isLoading {
+            content
+                .overlay {
                     ShimmerView(
                         primaryColor: primaryColor ?? Color.white,
                         secondaryColor: secondaryColor ?? Color.black.opacity(0.08)
                     )
                     .clipShape(shape)
                     .padding(-0.33)
+                    
                 }
-            }
+        } else {
+            content
+        }
     }
 }
 
